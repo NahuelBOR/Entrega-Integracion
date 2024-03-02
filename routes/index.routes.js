@@ -3,7 +3,7 @@ import { Router } from "express";
 const routerHome = Router()
 
 
-routerHome.get('/home', (req, res) => {
+routerHome.get('/chat', (req, res) => {
     res.render('home', {})
 })
 

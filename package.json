@@ -6,7 +6,7 @@
   "type": "module",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "node index.js"
+    "start": "nodemon index.js"
   },
   "engines": {
     "node": "14x"
@@ -17,6 +17,7 @@
   "dependencies": {
     "express": "^4.18.2",
     "express-handlebars": "^7.1.2",
+    "mongoose": "^8.2.0",
     "socket.io": "^4.7.4"
   }
 }
