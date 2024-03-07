@@ -1,37 +1,37 @@
-import { Product } from '../models/products.model.js'
+import { Cart } from '../models/carts.model.js'
 
-export class ProductManagerMongo{
+export class CartManagerMongo{
 
-    async allProduct(){
-        try{    
-            let resp = await Product.find()
+    async allCarts(){
+        try{
+            let resp = await Cart.find()
             return resp
         }catch(err){
             return 'Error: ', err
         }
     }
 
-    async addProduct(prod){
+    async addCart(prod){
         try{
-            await Product.create(prod)
-            return 'Producto creado'
+            await Cart.create(prod)
+            return 'Carrito creado'
         }catch(err){
             return 'Error: ', err
         }
     }
 
-    async getProductById(id){
+    async getCartById(id){
         try{
-            let resp = await Product.findById(id)
+            let resp = await Cart.findById(id)
             return resp
         }catch(err){
             return 'Error: ', err
         }
     }
 
-    async updateProductById(id, change) {
+    async updateCartById(id, change) {
         try{
-            await Product.findByIdAndUpdate(id, change)
+            await Cart.findByIdAndUpdate(id, change)
             return true
         }catch(err){
             return 'Error: ', err
@@ -40,7 +40,7 @@ export class ProductManagerMongo{
 
     async deleteProductById(id) {
         try{
-            await Product.findByIdAndDelete(id)
+            await Cart.findByIdAndDelete(id)
             return true
         }catch(err){
             return 'Error: ', err

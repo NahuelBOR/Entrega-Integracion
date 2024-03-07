@@ -2,10 +2,6 @@ import {promises as fs} from 'fs'
 import crypto from 'crypto'
 
 export class CartManager {
-    constructor(path) {
-        this.carts = []
-        this.path = path
-    }
 
     async getCarts() {
         const carts = JSON.parse(await fs.readFile(this.path, 'utf-8'))
