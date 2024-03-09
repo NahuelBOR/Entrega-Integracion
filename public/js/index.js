@@ -1,5 +1,6 @@
 const socket = io()
 
+
 const addMessages = () => {
     const msj = {
         nombre: document.getElementById('nombre').value,

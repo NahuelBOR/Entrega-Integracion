@@ -8,7 +8,8 @@ const prodRoutes = Router()
 prodRoutes.get('/allProducts', async (req, res) => {
     const resp = await productManager.allProduct()
     if(resp){
-        res.status(200).send(resp)
+        res.render('products', {resp})
+        //res.status(200).send(resp)
     }else{
         res.status(404).send(resp)
     }

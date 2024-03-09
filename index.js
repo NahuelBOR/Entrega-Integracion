@@ -7,7 +7,12 @@ import cartRoutes from './routes/cart.routes.js'
 import { Server } from "socket.io"
 import { createServer } from 'node:http';
 import dataBase from './dao/db/index.js'
+import { ChatManagerMongo } from './dao/db/ManagerMongo/chatManager.js'
+import { ProductManagerMongo } from './dao/db/ManagerMongo/productManager.js'
 import { log } from 'node:console'
+
+const chatManager = new ChatManagerMongo()
+const productManager = new ProductManagerMongo()
 
 const app = express()
 const server = createServer(app);
@@ -34,13 +39,22 @@ const io = new Server(server)
 
 
 
+
+
 io.on('connection', (socket) => {
     console.log('User Connected');
     
-    socket.on('msjNuevo', (data) => {
-        msjs.push(data)
-        io.sockets.emit('msjChat', msjs)
+    socket.on('msjNuevo', async (data) => {
+        await chatManager.addMsj(data)
+        io.sockets.emit('msjChat', await chatManager.allMsj())
+        //msjs.push(data)
+        //io.sockets.emit('msjChat', msjs)
     })
+
+    let allProds = async () => {
+        socket.emit('prods', await productManager.allProduct())
+    }
+    allProds()
 })
 
 
