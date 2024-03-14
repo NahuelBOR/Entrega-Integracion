@@ -14,11 +14,11 @@ const dataBase = {
                 date: '17/02/2024'
             })*/
 
-            let cart1 = await Cart.findOne({ _id: '65f255e662105326a39778c2'}).populate('products.product')
+            let cart1 = await Cart.find({ _id: '65f255e662105326a39778c2'})
             /*console.log(cart1);
-            cart1.products.push({product: '65d77aa13a936fa2d248bd16'})
+            cart1.products.push({product: '65e37c2a5764c3d11f0bc351'})
             console.log(cart1);
-            await Cart.updateOne({ _id: '65f255e662105326a39778c2'}, cart1)*/
+            await Cart.updateOne({ _id: '65e37c2a5764c3d11f0bc351'}, cart1)*/
             console.log(JSON.stringify(cart1, null, '\t'))
 
 
